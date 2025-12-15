@@ -82,12 +82,12 @@
     </script>
   </head>
 
-  <body class="text-slate-100 antialiased bg-slate-900">
+  <body class="text-slate-100 antialiased bg-slate-900 overflow-x-hidden">
     <div class="overflow-wrapper">
       <header class="fixed inset-x-0 top-0 z-50">
         <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Global">
           <div
-            class="mt-4 flex items-center justify-between rounded-2xl glass border border-white/10 p-3 shadow-smooth"
+            class="mt-4 flex items-center justify-between rounded-2xl glass border border-white/10 p-3 shadow-smooth bg-slate-900/80 backdrop-blur-md"
             data-aos="fade-down"
             data-aos-duration="1000"
           >
@@ -100,7 +100,7 @@
               >
                 <i class="fa-solid fa-code text-lg"></i>
               </div>
-              <span>Alexis Mendoza</span>
+              <span class="text-sm sm:text-base">Alexis Mendoza</span>
             </a>
 
             <ul class="hidden gap-6 md:flex">
@@ -137,15 +137,18 @@
               <button
                 id="menu-btn"
                 type="button"
-                class="z-50 p-2 rounded-md hover:accent-bg focus:outline-none focus:ring-2 focus:ring-inset accent-ring transition-colors text-white"
+                class="z-50 p-2 rounded-md hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset accent-ring transition-colors text-white relative w-10 h-10 flex items-center justify-center"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
                 aria-label="Abrir menú"
               >
-                <i id="menu-icon-open" class="fa-solid fa-bars text-xl"></i>
+                <i
+                  id="menu-icon-open"
+                  class="fa-solid fa-bars text-xl absolute transition-opacity duration-300 opacity-100"
+                ></i>
                 <i
                   id="menu-icon-close"
-                  class="fa-solid fa-xmark text-xl hidden"
+                  class="fa-solid fa-xmark text-xl absolute transition-opacity duration-300 opacity-0 pointer-events-none"
                 ></i>
               </button>
             </div>
@@ -153,41 +156,41 @@
 
           <div
             id="mobile-menu"
-            class="hidden md:hidden mt-2 rounded-2xl glass border border-white/10 shadow-smooth"
+            class="hidden md:hidden mt-2 rounded-2xl glass border border-white/10 shadow-smooth bg-slate-800/95 backdrop-blur-xl"
           >
-            <ul class="flex flex-col items-center space-y-4 py-6">
-              <li>
+            <ul class="flex flex-col items-center space-y-2 py-6">
+              <li class="w-full text-center">
                 <a
                   href="#home"
-                  class="mobile-link hover:accent-text transition-colors"
+                  class="mobile-link block w-full py-3 hover:accent-text hover:bg-white/5 transition-colors"
                   >Inicio</a
                 >
               </li>
-              <li>
+              <li class="w-full text-center">
                 <a
                   href="#about"
-                  class="mobile-link hover:accent-text transition-colors"
+                  class="mobile-link block w-full py-3 hover:accent-text hover:bg-white/5 transition-colors"
                   >Sobre mí</a
                 >
               </li>
-              <li>
+              <li class="w-full text-center">
                 <a
                   href="#portfolio"
-                  class="mobile-link hover:accent-text transition-colors"
+                  class="mobile-link block w-full py-3 hover:accent-text hover:bg-white/5 transition-colors"
                   >Proyectos</a
                 >
               </li>
-              <li>
+              <li class="w-full text-center">
                 <a
                   href="#services"
-                  class="mobile-link hover:accent-text transition-colors"
+                  class="mobile-link block w-full py-3 hover:accent-text hover:bg-white/5 transition-colors"
                   >Colaborar</a
                 >
               </li>
-              <li>
+              <li class="w-full text-center">
                 <a
                   href="#contact"
-                  class="mobile-link hover:accent-text transition-colors"
+                  class="mobile-link block w-full py-3 hover:accent-text hover:bg-white/5 transition-colors"
                   >Contacto</a
                 >
               </li>
@@ -199,11 +202,11 @@
       <main>
         <section
           id="home"
-          class="relative overflow-hidden cursor-default pt-32 md:pt-40 pb-20"
+          class="relative overflow-hidden cursor-default pt-28 md:pt-40 pb-16 md:pb-20"
         >
           <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div
-              class="flex flex-col items-center gap-12 md:grid md:grid-cols-2"
+              class="flex flex-col items-center gap-10 md:gap-12 md:grid md:grid-cols-2"
             >
               <div
                 class="space-y-6 text-center md:text-left"
@@ -219,31 +222,33 @@
                   ></span>
                 </p>
                 <h1
-                  class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
+                  class="text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
                 >
                   Hola, soy <span class="accent-text">Alexis Mendoza</span
                   ><br />
                   Desarrollador Web
                 </h1>
-                <p class="max-w-xl mx-auto md:mx-0 text-white/70">
+                <p
+                  class="max-w-xl mx-auto md:mx-0 text-white/70 text-sm sm:text-base"
+                >
                   Construyo sitios rápidos y modernos con HTML, CSS, JS,
                   Tailwind, PHP y Laravel. Me apasiona aprender y busco
                   colaborar en proyectos innovadores.
                 </p>
                 <div
-                  class="flex items-center justify-center md:justify-start gap-4 mt-8"
+                  class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mt-8"
                 >
                   <a
                     href="https://github.com/alexis1412"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 rounded-xl accent-bg px-5 py-3 text-slate-900 font-semibold hover:bg-green-400 transition-colors"
+                    class="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-xl accent-bg px-5 py-3 text-slate-900 font-semibold hover:bg-green-400 transition-colors"
                   >
                     <i class="fa-brands fa-github"></i> Ver GitHub
                   </a>
                   <a
                     href="#contact"
-                    class="inline-flex items-center gap-2 font-semibold hover:accent-text transition-colors"
+                    class="w-full sm:w-auto inline-flex justify-center items-center gap-2 font-semibold hover:accent-text transition-colors py-3 sm:py-0"
                   >
                     Contactar <i class="fa-solid fa-arrow-right text-sm"></i>
                   </a>
@@ -251,7 +256,7 @@
               </div>
 
               <div
-                class="relative mx-4 w-full"
+                class="relative w-full max-w-md mx-auto"
                 data-aos="zoom-in"
                 data-aos-delay="300"
                 data-aos-duration="1000"
@@ -273,7 +278,10 @@
           </div>
         </section>
 
-        <section id="about" class="py-24 cursor-default section-highlight">
+        <section
+          id="about"
+          class="py-16 md:py-24 cursor-default section-highlight"
+        >
           <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="text-center" data-aos="fade-up">
               <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -281,32 +289,38 @@
               </h2>
             </div>
             <div
-              class="mt-14 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16"
+              class="mt-10 md:mt-14 grid grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16"
             >
               <div
                 class="flex justify-center"
                 data-aos="zoom-in-right"
                 data-aos-duration="1000"
               >
-                <div class="h-80 w-80">
+                <div class="h-72 w-72 sm:h-80 sm:w-80 relative">
                   <div
-                    class="flip-card-inner shadow-smooth border border-white/10 rounded-2xl overflow-hidden"
+                    class="w-full h-full shadow-smooth border border-white/10 rounded-2xl overflow-hidden"
                   >
-                    <div class="flip-card-front">
-                      <img
-                        src="./assets/img/Retrado_alexis.webp"
-                        alt="Retrato de Alexis Mendoza, desarrollador web full stack"
-                        loading="eager"
-                        width="320"
-                        height="320"
-                        class="h-full w-full object-cover"
-                      />
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img
+                          src="./assets/img/Retrado_alexis.webp"
+                          alt="Retrato de Alexis Mendoza"
+                          loading="lazy"
+                          width="320"
+                          height="320"
+                          class="h-full w-full object-cover"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div data-aos="fade-left" data-aos-duration="1000">
-                <p class="text-lg text-white/80">
+              <div
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                class="text-center md:text-left"
+              >
+                <p class="text-base sm:text-lg text-white/80">
                   Soy un Desarrollador Web enfocado en transformar ideas en
                   soluciones digitales funcionales y atractivas. Mi pasión es el
                   desarrollo full-stack, desde la construcción de una lógica de
@@ -314,12 +328,14 @@
                   interfaces de usuario interactivas con JavaScript y Tailwind
                   CSS.
                 </p>
-                <p class="mt-4 text-lg text-white/80">
+                <p class="mt-4 text-base sm:text-lg text-white/80">
                   Me considero un constructor proactivo y un aprendiz por
                   naturaleza. Estoy listo para contribuir con mi energía y mi
                   enfoque en la calidad del código en proyectos innovadores.
                 </p>
-                <div class="mt-8 flex flex-wrap gap-4">
+                <div
+                  class="mt-8 flex flex-wrap justify-center md:justify-start gap-3"
+                >
                   <span class="skill-pill">PHP</span>
                   <span class="skill-pill">Laravel</span>
                   <span class="skill-pill">JavaScript</span>
@@ -331,17 +347,19 @@
           </div>
         </section>
 
-        <section id="portfolio" class="cursor-default py-24 relative">
+        <section id="portfolio" class="cursor-default py-16 md:py-24 relative">
           <div
             class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-green-500/10 rounded-full blur-3xl -z-10"
           ></div>
 
           <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
+            <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
               <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
                 Mis Proyectos Destacados
               </h2>
-              <p class="mt-4 max-w-2xl mx-auto text-lg text-white/60">
+              <p
+                class="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-white/60"
+              >
                 Soluciones reales que demuestran mi capacidad para resolver
                 problemas complejos.
               </p>
@@ -353,7 +371,7 @@
                 data-aos-delay="100"
                 class="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-800/50 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/20"
               >
-                <div class="relative h-52 overflow-hidden">
+                <div class="relative h-48 sm:h-52 overflow-hidden">
                   <div class="absolute top-3 right-3 z-10">
                     <span
                       class="px-3 py-1 rounded-full text-xs font-bold bg-purple-600/30 text-purple-200 border border-purple-500/30 backdrop-blur-md shadow-lg"
@@ -383,25 +401,20 @@
                     inscripciones, controla solvencia de pagos y genera reportes
                     en PDF. Arquitectura MVC robusta.
                   </p>
-
                   <div class="flex flex-wrap gap-2 mb-6">
-                    <span
-                      class="px-2 py-1 text-xs font-medium rounded-md bg-white/5 border border-white/10 text-slate-300"
-                      ><i class="fa-brands fa-laravel text-red-500 mr-1"></i>
-                      Laravel</span
-                    >
-                    <span
-                      class="px-2 py-1 text-xs font-medium rounded-md bg-white/5 border border-white/10 text-slate-300"
-                      ><i class="fa-solid fa-database text-blue-400 mr-1"></i>
-                      MySQL</span
-                    >
-                    <span
-                      class="px-2 py-1 text-xs font-medium rounded-md bg-white/5 border border-white/10 text-slate-300"
-                      ><i class="fa-brands fa-css3 text-cyan-400 mr-1"></i>
-                      Tailwind</span
-                    >
+                    <span class="tech-tag text-slate-300">
+                      <i class="fa-brands fa-laravel text-red-500 mr-1"></i>
+                      Laravel
+                    </span>
+                    <span class="tech-tag text-slate-300">
+                      <i class="fa-solid fa-database text-blue-400 mr-1"></i>
+                      MySQL
+                    </span>
+                    <span class="tech-tag text-slate-300">
+                      <i class="fa-brands fa-css3 text-cyan-400 mr-1"></i>
+                      Tailwind
+                    </span>
                   </div>
-
                   <div
                     class="flex items-center gap-3 pt-4 border-t border-white/5"
                   >
@@ -420,7 +433,7 @@
                 data-aos-delay="200"
                 class="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-800/50 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-green-500/50 hover:shadow-2xl hover:shadow-green-500/20"
               >
-                <div class="relative h-52 overflow-hidden">
+                <div class="relative h-48 sm:h-52 overflow-hidden">
                   <div class="absolute top-3 right-3 z-10">
                     <span
                       class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-300 border border-green-500/30 backdrop-blur-md shadow-lg"
@@ -450,24 +463,16 @@
                     First", tiempos de carga ultrarrápidos y estructura enfocada
                     en UX/UI.
                   </p>
-
                   <div class="flex flex-wrap gap-2 mb-6">
-                    <span
-                      class="px-2 py-1 text-xs font-medium rounded-md bg-white/5 border border-white/10 text-slate-300"
-                      ><i class="fa-brands fa-html5 text-orange-500 mr-1"></i>
-                      HTML5</span
-                    >
-                    <span
-                      class="px-2 py-1 text-xs font-medium rounded-md bg-white/5 border border-white/10 text-slate-300"
-                      ><i class="fa-brands fa-js text-yellow-400 mr-1"></i>
-                      ES6+</span
-                    >
-                    <span
-                      class="px-2 py-1 text-xs font-medium rounded-md bg-white/5 border border-white/10 text-slate-300"
-                      >AOS.js</span
-                    >
+                    <span class="tech-tag text-slate-300">
+                      <i class="fa-brands fa-html5 text-orange-500 mr-1"></i>
+                      HTML5
+                    </span>
+                    <span class="tech-tag text-slate-300">
+                      <i class="fa-brands fa-js text-yellow-400 mr-1"></i> ES6+
+                    </span>
+                    <span class="tech-tag text-slate-300">AOS.js</span>
                   </div>
-
                   <div
                     class="flex items-center gap-3 pt-4 border-t border-white/5"
                   >
@@ -490,7 +495,7 @@
                 data-aos-delay="300"
                 class="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-800/50 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20"
               >
-                <div class="relative h-52 overflow-hidden">
+                <div class="relative h-48 sm:h-52 overflow-hidden">
                   <div class="absolute top-3 right-3 z-10">
                     <span
                       class="px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30 backdrop-blur-md shadow-lg"
@@ -518,27 +523,18 @@
                   <p class="text-sm text-slate-300 flex-1 mb-4 leading-relaxed">
                     Sitio inmobiliario de lujo. Implementación avanzada de
                     <strong>Schema Markup</strong> para SEO local, Alpine.js
-                    para interactividad ligera y carga diferida.
+                    para interactividad.
                   </p>
-
                   <div class="flex flex-wrap gap-2 mb-6">
-                    <span
-                      class="px-2 py-1 text-xs font-medium rounded-md bg-white/5 border border-white/10 text-slate-300"
-                      ><i
+                    <span class="tech-tag text-slate-300">
+                      <i
                         class="fa-solid fa-magnifying-glass text-blue-400 mr-1"
                       ></i>
-                      SEO</span
-                    >
-                    <span
-                      class="px-2 py-1 text-xs font-medium rounded-md bg-white/5 border border-white/10 text-slate-300"
-                      >Alpine.js</span
-                    >
-                    <span
-                      class="px-2 py-1 text-xs font-medium rounded-md bg-white/5 border border-white/10 text-slate-300"
-                      >HTML5</span
-                    >
+                      SEO
+                    </span>
+                    <span class="tech-tag text-slate-300">Alpine.js</span>
+                    <span class="tech-tag text-slate-300">HTML5</span>
                   </div>
-
                   <div
                     class="flex items-center gap-3 pt-4 border-t border-white/5"
                   >
@@ -558,24 +554,23 @@
 
         <section
           id="services"
-          class="py-24 cursor-default relative overflow-hidden"
+          class="py-16 md:py-24 cursor-default relative overflow-hidden"
         >
           <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
             <div
-              class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6"
+              class="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 gap-6"
               data-aos="fade-right"
             >
-              <div class="max-w-xl">
+              <div class="max-w-xl text-center md:text-left">
                 <h2
                   class="text-3xl font-bold tracking-tight sm:text-4xl text-white"
                 >
                   Más que código,<br />
                   <span class="text-green-400">construyo soluciones.</span>
                 </h2>
-                <p class="mt-4 text-lg text-slate-400">
+                <p class="mt-4 text-base sm:text-lg text-slate-400">
                   Mi enfoque no es solo escribir líneas de código, sino crear
-                  activos digitales que aporten valor real a tu negocio u
-                  organización.
+                  activos digitales que aporten valor real a tu negocio.
                 </p>
               </div>
               <div
@@ -596,20 +591,17 @@
                     class="fa-solid fa-layer-group text-8xl text-green-500"
                   ></i>
                 </div>
-
                 <div
                   class="h-12 w-12 rounded-xl bg-green-500/10 flex items-center justify-center text-green-400 mb-6 group-hover:scale-110 transition-transform"
                 >
                   <i class="fa-solid fa-code text-xl"></i>
                 </div>
-
                 <h3 class="text-xl font-bold text-white mb-3">
                   Front-End Moderno
                 </h3>
                 <p class="text-slate-400 text-sm leading-relaxed mb-4">
                   Transformo diseños en código pixel-perfect. Interfaces
-                  responsivas que funcionan en cualquier dispositivo, usando la
-                  potencia de Tailwind CSS.
+                  responsivas que funcionan en cualquier dispositivo.
                 </p>
                 <ul class="text-sm text-slate-500 space-y-2">
                   <li class="flex items-center gap-2">
@@ -633,20 +625,17 @@
                 >
                   <i class="fa-solid fa-server text-8xl text-blue-500"></i>
                 </div>
-
                 <div
                   class="h-12 w-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform"
                 >
                   <i class="fa-solid fa-database text-xl"></i>
                 </div>
-
                 <h3 class="text-xl font-bold text-white mb-3">
                   Back-End & APIs
                 </h3>
                 <p class="text-slate-400 text-sm leading-relaxed mb-4">
                   Arquitectura lógica segura y escalable. Desarrollo de APIs
-                  RESTful y gestión eficiente de bases de datos con Laravel y
-                  MySQL.
+                  RESTful y gestión eficiente de bases de datos.
                 </p>
                 <ul class="text-sm text-slate-500 space-y-2">
                   <li class="flex items-center gap-2">
@@ -670,20 +659,17 @@
                 >
                   <i class="fa-solid fa-rocket text-8xl text-purple-500"></i>
                 </div>
-
                 <div
                   class="h-12 w-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition-transform"
                 >
                   <i class="fa-regular fa-lightbulb text-xl"></i>
                 </div>
-
                 <h3 class="text-xl font-bold text-white mb-3">
                   Optimización Web
                 </h3>
                 <p class="text-slate-400 text-sm leading-relaxed mb-4">
                   Mejora del rendimiento y SEO técnico. Hago que tu sitio no
-                  solo se vea bien, sino que cargue rápido y sea encontrado en
-                  Google.
+                  solo se vea bien, sino que cargue rápido.
                 </p>
                 <ul class="text-sm text-slate-500 space-y-2">
                   <li class="flex items-center gap-2">
@@ -702,13 +688,15 @@
 
         <section
           id="contact"
-          class="py-24 cursor-default bg-slate-900 border-t border-white/5 relative"
+          class="py-16 md:py-24 cursor-default bg-slate-900 border-t border-white/5 relative"
         >
           <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div
+              class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start"
+            >
               <div data-aos="fade-right">
                 <h2
-                  class="text-4xl font-extrabold tracking-tight text-white mb-6"
+                  class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-6"
                 >
                   ¿Tienes una idea?<br />
                   <span
@@ -716,7 +704,9 @@
                     >Hagámosla realidad.</span
                   >
                 </h2>
-                <p class="text-lg text-slate-400 mb-8 leading-relaxed">
+                <p
+                  class="text-base sm:text-lg text-slate-400 mb-8 leading-relaxed"
+                >
                   Estoy disponible para trabajos freelance, contratos por
                   proyecto o roles full-time. Cuéntame sobre tu proyecto y te
                   responderé en menos de 24 horas.
@@ -757,8 +747,8 @@
                         Para detalles técnicos.
                       </p>
                       <a
-                        href="mailto:tuemail@ejemplo.com"
-                        class="text-blue-400 hover:text-blue-300 font-medium transition-colors"
+                        href="mailto:alex.14mendoza14@gmail.com"
+                        class="text-blue-400 hover:text-blue-300 font-medium transition-colors break-all"
                       >
                         alex.14mendoza14@gmail.com
                       </a>
@@ -782,7 +772,7 @@
               </div>
 
               <div
-                class="bg-white/5 p-8 rounded-3xl border border-white/10 shadow-2xl"
+                class="bg-white/5 p-6 sm:p-8 rounded-3xl border border-white/10 shadow-2xl"
                 data-aos="fade-left"
               >
                 <form
@@ -806,7 +796,6 @@
                       class="w-full rounded-xl border border-white/10 bg-slate-900/50 px-4 py-3 text-white placeholder:text-slate-600 focus:border-green-500 focus:ring-1 focus:ring-green-500 focus:outline-none transition-all"
                     />
                   </div>
-
                   <div>
                     <label
                       for="email"
@@ -822,7 +811,6 @@
                       class="w-full rounded-xl border border-white/10 bg-slate-900/50 px-4 py-3 text-white placeholder:text-slate-600 focus:border-green-500 focus:ring-1 focus:ring-green-500 focus:outline-none transition-all"
                     />
                   </div>
-
                   <div>
                     <label
                       for="message"
@@ -838,10 +826,9 @@
                       class="w-full rounded-xl border border-white/10 bg-slate-900/50 px-4 py-3 text-white placeholder:text-slate-600 focus:border-green-500 focus:ring-1 focus:ring-green-500 focus:outline-none transition-all resize-none"
                     ></textarea>
                   </div>
-
                   <button
                     type="submit"
-                    class="w-full rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 px-6 py-4 text-white font-bold text-lg hover:from-green-400 hover:to-emerald-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-slate-900 transition-all shadow-lg shadow-green-500/20 transform hover:-translate-y-1"
+                    class="w-full rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 px-6 py-4 text-white font-bold text-lg hover:from-green-400 hover:to-emerald-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-slate-900 transition-all shadow-lg shadow-green-500/20 transform hover:-translate-y-1 active:scale-95"
                   >
                     Enviar Mensaje <i class="fa-solid fa-paper-plane ml-2"></i>
                   </button>
@@ -857,7 +844,7 @@
           <div
             class="flex flex-col items-center justify-between gap-6 md:flex-row"
           >
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-6">
               <a
                 href="https://github.com/Alexissmldev"
                 target="_blank"
@@ -902,21 +889,69 @@
       .tech-tag {
         @apply rounded-full bg-green-500/10 px-3 py-1 text-xs font-medium border border-transparent;
       }
-      .project-link {
-        @apply flex items-center gap-1.5 text-sm font-semibold text-white/80 hover:accent-text transition-colors;
-      }
-      .form-input {
-        @apply block w-full rounded-lg border border-white/20 bg-white/5 px-4 py-3 text-white/80 placeholder:text-white/40 transition-all duration-300 hover:border-green-500/30 hover:shadow-green-500/10 focus:border-green-500/30 focus:shadow-green-500/10 focus:outline-none;
-      }
-      .service-card {
-        @apply flex flex-col items-center text-center rounded-2xl border border-white/10 bg-slate-950/20 p-8 transition-all duration-300 ease-in-out hover:scale-105 hover:border-green-400/50 hover:shadow-lg hover:shadow-green-500/10 focus:outline-none;
-      }
       .social-link {
         @apply text-white/60 hover:accent-text transition-colors flex items-center gap-2;
+      }
+
+      /* REGLA IMPORTANTE PARA EL BUG DEL NAVBAR */
+      /* Asegura que opacity-0 oculte visualmente y quite interacción */
+      .opacity-0 {
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+      .opacity-100 {
+        opacity: 1 !important;
       }
     </style>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true });
+
+      // Script corregido para evitar que ambos iconos se muestren
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const iconOpen = document.getElementById("menu-icon-open");
+      const iconClose = document.getElementById("menu-icon-close");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+      let isMenuOpen = false;
+
+      function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+
+        // Alternar visibilidad del menú
+        if (isMenuOpen) {
+          mobileMenu.classList.remove("hidden");
+          // Mostrar X, Ocultar Barras
+          iconOpen.classList.remove("opacity-100");
+          iconOpen.classList.add("opacity-0");
+
+          iconClose.classList.remove("opacity-0");
+          iconClose.classList.add("opacity-100");
+          iconClose.classList.remove("hidden"); // asegurar que no tenga hidden
+        } else {
+          mobileMenu.classList.add("hidden");
+          // Mostrar Barras, Ocultar X
+          iconOpen.classList.remove("opacity-0");
+          iconOpen.classList.add("opacity-100");
+
+          iconClose.classList.remove("opacity-100");
+          iconClose.classList.add("opacity-0");
+        }
+
+        menuBtn.setAttribute("aria-expanded", isMenuOpen);
+      }
+
+      if (menuBtn) {
+        menuBtn.addEventListener("click", toggleMenu);
+      }
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (isMenuOpen) toggleMenu();
+        });
+      });
+    </script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>
