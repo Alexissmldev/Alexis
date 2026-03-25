@@ -56,6 +56,28 @@
       #mobile-menu {
         transition: all 0.3s ease-in-out;
       }
+
+      #offer-modal {
+        transition:
+          opacity 0.5s ease,
+          visibility 0.5s ease;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      #offer-modal.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      #offer-modal .modal-card {
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: translateY(30px) scale(0.95);
+      }
+
+      #offer-modal.active .modal-card {
+        transform: translateY(0) scale(1);
+      }
     </style>
   </head>
 
@@ -823,6 +845,97 @@
       </div>
     </footer>
 
+    <div
+      id="offer-modal"
+      class="fixed inset-0 z-[100] flex items-center justify-center p-4"
+    >
+      <div
+        class="absolute inset-0 bg-pizarra/95 backdrop-blur-md"
+        id="modal-overlay"
+      ></div>
+
+      <div
+        class="modal-card relative bg-white w-full max-w-md shadow-2xl border-t-8 border-neon"
+      >
+        <button
+          id="close-modal"
+          class="absolute top-2 right-2 text-pizarra/20 hover:text-pizarra p-2"
+        >
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+
+        <div class="p-8 sm:p-10 text-center">
+          <h2
+            class="font-header font-extrabold text-2xl text-pizarra mb-6 leading-tight tracking-tighter"
+          >
+            ¿Tu negocio depende
+            <span class="text-pizarra/40 italic">totalmente</span> de ti?
+          </h2>
+
+          <ul class="space-y-4 text-left mb-10">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-check text-neon mt-1"></i>
+              <p class="text-slate-600 text-sm">
+                Libérate de responder precios por WhatsApp.
+              </p>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-check text-neon mt-1"></i>
+              <p class="text-slate-600 text-sm">
+                Olvida el desorden de revisar captures a mano.
+              </p>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-check text-neon mt-1"></i>
+              <p class="text-slate-600 text-sm font-bold text-pizarra">
+                Vende en automático mientras descansas.
+              </p>
+            </li>
+          </ul>
+
+          <div class="flex flex-col gap-4">
+            <a
+              href="https://wa.me/584124618344?text=Hola%20Alexis,%20quiero%20postular%20mi%20negocio"
+              class="bg-neon text-pizarra py-5 px-6 font-header font-extrabold text-xs uppercase tracking-[0.2em] shadow-xl hover:bg-pizarra hover:text-white transition-all active:scale-95"
+            >
+              POSTULAR MI NEGOCIO GRATIS
+            </a>
+
+            <button
+              id="decline-modal"
+              class="text-[9px] text-slate-400 font-header font-bold uppercase tracking-widest hover:text-pizarra"
+            >
+              No me interesa automatizar mi éxito
+            </button>
+          </div>
+
+          <p
+            class="mt-6 text-[9px] text-slate-400 font-bold uppercase tracking-widest pt-4 border-t border-slate-100"
+          >
+            Cupos limitados para Maracay:
+            <span class="text-pizarra">Quedan 3 disponibles</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <a
+      href="https://wa.me/584124618344"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-neon text-pizarra shadow-[0_10px_30px_-5px_rgba(173,255,47,0.6)] hover:bg-white hover:scale-110 transition-all duration-300 group animate-float"
+      aria-label="Contactar por WhatsApp"
+      data-aos="zoom-in"
+      data-aos-delay="1000"
+    >
+      <i class="fa-brands fa-whatsapp text-2xl"></i>
+
+      <span
+        class="absolute right-16 bg-pizarra text-white text-[10px] font-header font-extrabold uppercase tracking-widest px-4 py-2 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border-l-2 border-neon whitespace-nowrap hidden md:block"
+      >
+        ¿Hablamos de tu negocio?
+      </span>
+    </a>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init({ once: true, duration: 800 });
@@ -849,24 +962,38 @@
           body.classList.remove("mobile-menu-open");
         });
       });
+      const modal = document.getElementById("offer-modal");
+      const closeButtons = [
+        document.getElementById("close-modal"),
+        document.getElementById("modal-overlay"),
+        document.getElementById("decline-modal"),
+      ];
+
+      let modalShown = false;
+
+      function openModal() {
+        if (modalShown || sessionStorage.getItem("modal_viewed")) return;
+        modal.classList.add("active");
+        modalShown = true;
+        sessionStorage.setItem("modal_viewed", "true");
+      }
+
+      setTimeout(openModal, 6000);
+
+      window.addEventListener("scroll", () => {
+        const scrollPos =
+          (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
+          100;
+        if (scrollPos > 25) {
+          openModal();
+        }
+      });
+
+      closeButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          modal.classList.remove("active");
+        });
+      });
     </script>
-
-    <a
-      href="https://wa.me/584124618344"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-neon text-pizarra shadow-[0_10px_30px_-5px_rgba(173,255,47,0.6)] hover:bg-white hover:scale-110 transition-all duration-300 group animate-float"
-      aria-label="Contactar por WhatsApp"
-      data-aos="zoom-in"
-      data-aos-delay="1000"
-    >
-      <i class="fa-brands fa-whatsapp text-2xl"></i>
-
-      <span
-        class="absolute right-16 bg-pizarra text-white text-[10px] font-header font-extrabold uppercase tracking-widest px-4 py-2 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border-l-2 border-neon whitespace-nowrap hidden md:block"
-      >
-        ¿Hablamos de tu negocio?
-      </span>
-    </a>
   </body>
 </html>
